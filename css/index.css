@@ -34,7 +34,40 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  margin: var(--gap) 0 0 var(--gap);
+  margin-top: var(--gap);
+  margin-left: var(--gap);
+}
+
+.widgets > .top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: var(--gap);
+  margin-right: var(--gap);
+}
+
+.widgets > .bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: var(--gap);
+  margin-right: var(--gap);
+}
+
+.widgets > .bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: var(--gap);
+  margin-left: var(--gap);
+}
+
+.widgets > .center-left {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  margin-left: var(--gap);
 }
 
 .widget {
