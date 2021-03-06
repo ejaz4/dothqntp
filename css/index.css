@@ -27,7 +27,30 @@ body {
   background-size: cover;
   background-position: center center;
   opacity: 1;
-  transition: opacity 0.3s ease;
+  filter: blur(0);
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.page-in {
+  animation: ease 0.3s backgroundSlideAnimation;
+}
+
+@keyframes backgroundSlideAnimation {
+  0.0% {
+    background-size: 110%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+.widgets {
+  max-width: 100%;
+  transition: max-width 0.2s ease;
+}
+
+.widgets-slide {
+  max-width: calc(100% - 400px) !important;
 }
 
 .widgets > .top-left {
@@ -44,6 +67,11 @@ body {
   right: 0;
   margin-top: var(--gap);
   margin-right: var(--gap);
+  transition: right 0.3s ease !important;
+}
+
+.widgets > .slidden {
+  right: 400px;
 }
 
 .widgets > .bottom-right {
@@ -93,4 +121,19 @@ body {
   font-size: 1.5rem;
   font-weight: 400;
   opacity: 0.7;
+}
+
+/* settings */
+.settings {
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.settings > .pane {
+  position: absolute;
+  width: 400px;
+  max-width: 50%;
+  background-color: white;
+  height: 100vh;
+  right: 0;
+  top: 0;
 }

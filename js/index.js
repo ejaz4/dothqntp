@@ -48,7 +48,24 @@ const getOrdinalNum = (number) => {
 
 const loadcall = () => {
     document.getElementsByClassName("page")[0].setAttribute("style","");
+    document.getElementsByClassName("page")[0].setAttribute("class","page page-in");
 }
 /* Set Time Tick */
 setInterval(timetick, 995);
 timetick();
+
+const slideEverything = (arg) =>{
+    document.getElementsByClassName('widgets')[0].setAttribute('class','widgets widgets-slide');
+    let arightelems = document.getElementsByClassName("top-right");
+    Array.prototype.forEach.call(arightelems, function(item) {
+        const t = item.getAttribute("class");
+        item.setAttribute("class", t + ' slidden');
+        item.setAttribute("slide","aslidden");
+    });
+    let crightelems = document.getElementsByClassName("bottom-right");
+    Array.prototype.forEach.call(crightelems, function(item) {
+        const t = item.getAttribute("class");
+        item.setAttribute("class", t + ' slidden');
+        item.setAttribute("slide","cslidden");
+    });
+}
