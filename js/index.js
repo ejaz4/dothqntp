@@ -62,10 +62,17 @@ const slideEverything = (arg) =>{
         item.setAttribute("class", t + ' slidden');
         item.setAttribute("slide","aslidden");
     });
+    let brightelems = document.getElementsByClassName("center-right");
+    Array.prototype.forEach.call(brightelems, function(item) {
+        const t = item.getAttribute("class");
+        item.setAttribute("class", t + ' slidden');
+        item.setAttribute("slide","cslidden");
+    });
     let crightelems = document.getElementsByClassName("bottom-right");
     Array.prototype.forEach.call(crightelems, function(item) {
         const t = item.getAttribute("class");
         item.setAttribute("class", t + ' slidden');
         item.setAttribute("slide","cslidden");
     });
+    document.getElementsByClassName("settings-closed")[0].setAttribute("class","settings");
 }

@@ -14,17 +14,22 @@
                     <time class="time--a1"></time>
                     <time class="time--a2"></time>
                 </div>
-                <div onclick="slideEverything('y')" class="top-right widget" id="time-widget">
-                    <img style="filter: invert();" src="/images/settings.svg"/>
+                <div onclick="slideEverything('y')" style="padding: 20px;" class="top-right widget" id="time-widget">
+                    <img style="filter: invert(); display: block;" src="/images/settings.svg"/>
                 </div>
             </div>
 
-            <div style="display: none;" class="settings">
-                <div class=""></div>
-                <div class="pane">
-                    <h1>Themes</h1>
+            <div style="" class="settings-closed">
+                <div class="settings-right">
+                    <div class="settings-pad">
+                        <div class="settings-loading">
+                            <settingskel></settingskel>
+                        </div>
+                    </div>
                 </div>
             </div>
+        <flseimport src="/skels/settingsskel.html" name="settingskel" type="component"/>
         <script src="/js/index.js"></script>
+        <script src="/flse.js"></script>
     </body>
 </html>
