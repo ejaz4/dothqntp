@@ -19,15 +19,9 @@ body {
 }
 .page {
   height: 100vh;
-  background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(255, 255, 255, 0) 50%,
-      rgba(0, 0, 0, 0.5) 100%
-    ),
-    url(https://source.unsplash.com/collection/67042424);
   background-repeat: no-repeat;
   background-size: cover;
+  /* linear-gradient(0deg,rgba(0, 0, 0, 0.5) 0%,rgba(255, 255, 255, 0) 50%,rgba(0, 0, 0, 0.5) 100%),  */
   background-position: center center;
   opacity: 1;
   filter: blur(0);
@@ -129,13 +123,13 @@ body {
 }
 /* Time Widget */
 .time--a1 {
-  color: white;
+  color: var(--backg-text-color);
   font-size: 5rem;
   font-weight: 600;
 }
 .time--a2 {
   display: block;
-  color: white;
+  color: var(--backg-text-color);
   font-size: 1.5rem;
   font-weight: 400;
   opacity: 0.7;
