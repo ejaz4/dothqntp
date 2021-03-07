@@ -59,7 +59,12 @@ const timetick = () => {
       ];
 
     document.getElementsByClassName("time--a1")[0].innerText = `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
-    document.getElementsByClassName("time--a2")[0].innerText = `${days[d.getDay()]}, ${nth} ${months[d.getMonth()]}`
+    const t2 = document.getElementsByClassName("time--a2")[0];
+    if (settings["locale"].startsWith("en")){
+      t2.innerText = `${days[d.getDay()]}, ${nth} ${months[d.getMonth()]}`;
+    }
+    if (settings["locale"].startsWith("ja")){ t2.innerHTML = `${d.getFullYear()}年${d.getMonth()}月${d.getDate()}日 (${flsestrings[days[d.getDay()]].ja})`; }
+    if (settings["locale"].startsWith("sv")){ t2.innerHTML = `${flsestrings[days[d.getDay()]].sv}, ${d.getDate()} ${flsestrings[months[d.getMonth()]].sv}`;}
 }
 
 const getOrdinalNum = (number) => {
@@ -82,7 +87,9 @@ const loadcall = () => {
 }
 /* Set Time Tick */
 setInterval(timetick, 995);
-timetick();
+const flseLoadcall = () => {
+  timetick();
+}
 
 const slideEverything = (arg) =>{
     document.getElementsByClassName('widgets')[0].setAttribute('class','widgets widgets-slide');
@@ -105,6 +112,22 @@ const slideEverything = (arg) =>{
         item.setAttribute("slide","cslidden");
     });
     document.getElementsByClassName("settings-closed")[0].setAttribute("class","settings");
+    if (document.getElementsByClassName("settings-comp")[0].getAttribute("datainside") != "1"){
+    fetch('/components/settings.html').then((response) => {
+      if (response.status == 200){
+        response.text().then((data) => {
+          document.getElementsByClassName("settings-comp")[0].innerHTML = data;
+          document.getElementsByClassName("settings-comp")[0].setAttribute("datainside", "1")
+          document.getElementsByClassName("settings-loading")[0].setAttribute("style","opacity: 0; transition: opacity 0.3s ease;");
+          setTimeout(() => document.getElementsByClassName("settings-loading")[0].setAttribute("style","display: none;"), 
+          300);
+          setTimeout(() => document.getElementsByClassName("settings-comp")[0].setAttribute("style","opacity: 1; transition: opacity 0.3s ease;"),
+          300);
+
+        });
+      }
+    })
+  }
 }
 
 function getImageLightness(imageSrc,callback) {

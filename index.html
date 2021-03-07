@@ -3,6 +3,9 @@
     <head>
         <title>New Tab</title>
         <meta charset="utf-8"/>
+        <script>
+            var flsestrings = {};
+        </script>
         <link href="/css/index.css" rel="stylesheet"/>
     </head>
     <body onload="loadcall()">
@@ -25,6 +28,9 @@
                         <div class="settings-loading">
                             <settingskel/>
                         </div>
+                        <div style="opacity: 0; display: none;" class="settings-comp">
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -39,8 +45,10 @@
                     --backg-text-color-rgb: 255;
                 }
             </style>
+            <locale value="sv"/>
         <flseimport src="/skels/settingsskel.html" name="settingskel" type="component"/>
         <script src="/js/index.js"></script>
+        <script src="/js/strings.js"></script>
         <script src="/flse.js"></script>
     </body>
 </html>
