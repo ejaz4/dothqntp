@@ -1,0 +1,27 @@
+doctype html
+head
+    title New Tab
+    meta(charset='utf-8')
+    link(href='/css/index.css' rel='stylesheet')
+body
+    .page(style='opacity: 0;')
+        .background(style=``)
+        .widgets
+            // Time Widget
+            #time-widget.top-left.widget
+                time.time--a1
+                time.time--a2
+            #time-widget.top-right.widget(onclick="window.ntp.onSettingsClick('y')" style='padding: 20px;')
+                img(style='filter: invert(); display: block; width: 16px;' src='/images/settings.svg')
+            .settings-closed
+                .settings-right
+                    .settings-pad
+                        .settings-loading
+                            settingskel
+    flseimport(src='/skels/settingsskel.html' name='settingskel' type='component')
+    textarea(id='APP_DATA').
+       #{JSON.stringify(data)} 
+    script(src='/js/index.js' type='module')
+    script(src='/js/constants.js' type='module')
+    script(src='/js/tools.js' type='module')
+    script(src='/js/flse.js')

@@ -1,0 +1,16 @@
+{
+  "name": "ntp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ejaz4/dothqntp",
+  "author": "Dot HQ <contact@dothq.co>",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/pug": "^2.0.4"
+  }
+}
