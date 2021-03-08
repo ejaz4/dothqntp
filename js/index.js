@@ -1,25 +1,36 @@
+let globalvar = {};
+
 fetch('/components/backgrounds.json').then((response) => {
   if (response.status == 200){
     response.json().then((data)=>{
       const randomNum = Math.floor(getRandomArbitrary(0, data.length - 1));
-      console.log(randomNum);
       console.log(data[randomNum]);
-      document.getElementById("background-css").innerText = `
-      .page{
-          background-image: url('/images/unsplash/${data[randomNum].id}.jpeg');
-      }
-      `
-      getImageLightness(`/images/unsplash/${data[randomNum].id}.jpeg`,function(brightness){
-        console.log(brightness);
-        if (brightness > 120){
-          document.getElementById("text-css").innerText = `
-          :root{
+      fetch(`/images/unsplash/${data[randomNum].id}.jpeg`).then((response) => {
+
+        if (response.status == 200) { response.blob().then((buffer) => {
+
+          globalvar["wallpaperURL"] = URL.createObjectURL(buffer);
+
+          document.getElementById("background-css").innerText = `
+          .page{
+            background-image: url('${globalvar["wallpaperURL"]}');
+          }`;
+
+          getImageLightness(`${globalvar["wallpaperURL"]}`,function(brightness){
+
+            console.log(brightness)
+            if (brightness > 3){
+              document.getElementById("text-css").innerText = `
+                :root{
                     --backg-text-color: black;
                     --backg-text-color-rgb: 0;
-                }
-      `
-        }
+                }`
+            }
       });
+      document.getElementsByClassName("page")[0].setAttribute("style","");
+      document.getElementsByClassName("page")[0].setAttribute("class","page page-in");
+        }) }
+      })
     })
   }
 })
@@ -82,8 +93,7 @@ const getOrdinalNum = (number) => {
 };
 
 const loadcall = () => {
-    document.getElementsByClassName("page")[0].setAttribute("style","");
-    document.getElementsByClassName("page")[0].setAttribute("class","page page-in");
+  console.log("");
 }
 /* Set Time Tick */
 setInterval(timetick, 995);
@@ -147,7 +157,7 @@ function getImageLightness(imageSrc,callback) {
         var ctx = canvas.getContext("2d");
         ctx.drawImage(this,0,0);
 
-        var imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+        var imageData = ctx.getImageData(0,0,300,200);
         var data = imageData.data;
         var r,g,b,avg;
 
@@ -164,3 +174,7 @@ function getImageLightness(imageSrc,callback) {
         callback(brightness);
     }
 }
+
+window.addEventListener("beforeunload", () => {
+  URL.revokeObjectURL(globalvar["wallpaperURL"]);
+})
