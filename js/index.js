@@ -101,7 +101,7 @@ const flseLoadcall = () => {
   timetick();
 }
 
-const slideEverything = (arg) =>{
+const slideEverything = (arg) => {
     document.getElementsByClassName('widgets')[0].setAttribute('class','widgets widgets-slide');
     let arightelems = document.getElementsByClassName("top-right");
     Array.prototype.forEach.call(arightelems, function(item) {

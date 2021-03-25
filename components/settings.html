@@ -1,1 +1,70 @@
 <h1 flsestring="themes">Themes</h1>
+<div style="
+    display: flex; 
+    gap: 20px; 
+    flex-wrap: nowrap; 
+    overflow-x: scroll; 
+    overflow-y: hidden;
+    scroll-snap-type: x;
+    scrollbar-width: thin;
+    "
+>
+    <div class="theme-item-around">
+    <div style="background-color: #E5E5E5;" class="theme-item">
+        <img src="/images/theme/light.png"/>
+    </div>
+    <p flsestring="light">Light</p>
+    </div>
+
+    <div class="theme-item-around">
+        <div style="background-color: #323232;" class="theme-item">
+            <img src="/images/theme/dark.png" />
+        </div>
+        <p flsestring="dark">Dark</p>
+    </div>
+
+    <div class="theme-item-around">
+        <div style="background-color: #323232;" class="theme-item">
+            <img src="/images/theme/fusion.png" />
+        </div>
+        <p flsestring="fusion">Fusion</p>
+    </div>
+
+    <div class="theme-item-around">
+        <div style="background-color: #3250ED;" class="theme-item">
+            <img src="/images/theme/royalblue.png" />
+        </div>
+        <p flsestring="royalblue">Royal Blue</p>
+    </div>
+
+    <div class="theme-item-around">
+        <div style="background-color: #3250ED;" class="theme-item">
+            <img src="/images/theme/royalblue.png" />
+        </div>
+        <p flsestring="royalblue">Royal Blue</p>
+    </div>
+</div>
+<h1 flsestring="background">Background</h1>
+
+
+<style>
+    .theme-item-around {
+        text-align: center;
+        transform: scale(1.0);
+        scroll-snap-align: start;
+        transition: transform 0.2s ease;
+    }
+    .theme-item-around:active {
+        transform: scale(0.95);
+    }
+    .theme-item-around > p{
+        margin: 10px 0 10px 0;
+    }
+    .theme-item {
+        padding: 2px;
+        border-radius: 10px;
+    }
+    .theme-item > img {
+        display: block;
+    }
+</style>

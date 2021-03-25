@@ -87,3 +87,17 @@ flsestrings["December"] = {
     "default": "December",
     "sv": "december"
 }
+
+/* Themes */
+flsestrings["light"] = {
+    "default": "Light",
+}
+flsestrings["dark"] = {
+    "default": "Dark",
+}
+flsestrings["fusion"] = {
+    "default": "Fusion",
+}
+flsestrings["royalblue"] = {
+    "default": "Royal Blue",
+}
