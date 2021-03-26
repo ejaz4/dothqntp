@@ -1,4 +1,4 @@
-<h1 flsestring="themes">Themes</h1>
+<h1 class="settings-header" flsestring="themes">Themes</h1>
 <div style="
     display: flex; 
     gap: 20px; 
@@ -7,8 +7,10 @@
     overflow-y: hidden;
     scroll-snap-type: x;
     scrollbar-width: thin;
+    margin-left: -35px;
     "
 >
+    <div style="padding-left: 15px; scroll-snap-align: start;"></div>
     <div class="theme-item-around">
     <div style="background-color: #E5E5E5;" class="theme-item">
         <img src="/images/theme/light.png"/>
@@ -44,8 +46,12 @@
         <p flsestring="royalblue">Royal Blue</p>
     </div>
 </div>
-<h1 flsestring="background">Background</h1>
+<h1 class="settings-header" flsestring="background">Background</h1>
+<div>
 
+</div>
+
+<p style="opacity: 0.5;">Try Compass on <a href="https://new.dothq.co/">Dot Browser</a></p>
 
 <style>
     .theme-item-around {
@@ -66,5 +72,9 @@
     }
     .theme-item > img {
         display: block;
+    }
+    
+    .settings-header {
+        font-size: 26px;
     }
 </style>

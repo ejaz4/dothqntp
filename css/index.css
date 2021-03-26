@@ -2,6 +2,7 @@
   --gap: 34px;
   --backg-color: white;
   --backg-color-light: rgba(0, 0, 0, 0.1);
+  --accent-color: rgb(37, 110, 245);
 }
 
 body,
@@ -162,12 +163,64 @@ body {
 }
 
 .settings-right > .settings-pad {
-  margin-right: 5%;
-  margin-left: 5%;
-  margin-top: 20px;
+  padding: 10px 0px 0px 35px;
 }
 
 .loading {
   background: var(--backg-color-light);
   background-size: 600% 600%;
+}
+
+.loading {
+  background: linear-gradient(
+    270deg,
+    var(--backg-color-light),
+    var(--backg-color-light),
+    var(--backg-color-light),
+    var(--backg-color-light),
+    var(--backg-color-light),
+    var(--backg-color-light),
+    var(--backg-color),
+    var(--backg-color-light),
+    var(--backg-color-light),
+    var(--backg-color-light),
+    var(--backg-color-light),
+    var(--backg-color-light),
+    var(--backg-color-light)
+  );
+  background-size: 600% 600%;
+
+  -webkit-animation: SkeletonAnimation 6s ease infinite;
+  -moz-animation: SkeletonAnimation 6s ease infinite;
+  animation: SkeletonAnimation 6s ease infinite;
+}
+
+@-webkit-keyframes SkeletonAnimation {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes SkeletonAnimation {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes SkeletonAnimation {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
 }
