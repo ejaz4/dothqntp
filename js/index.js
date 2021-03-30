@@ -123,12 +123,13 @@ const slideEverything = (arg) => {
     });
     document.getElementsByClassName("settings-closed")[0].setAttribute("class","settings");
     if (document.getElementsByClassName("settings-comp")[0].getAttribute("datainside") != "1"){
+      setTimeout(() => {
     fetch('/components/settings.html').then((response) => {
       if (response.status == 200){
         response.text().then((data) => {
           document.getElementsByClassName("settings-comp")[0].innerHTML = data;
           document.getElementsByClassName("settings-comp")[0].setAttribute("datainside", "1")
-          document.getElementsByClassName("settings-loading")[0].setAttribute("style","opacity: 0; transition: opacity 0.3s ease;");
+          document.getElementsByClassName("settings-loading")[0].setAttribute("style","opacity: 0; transition: opacity 0.3s ease; padding: 20px 35px 0px 0px;");
           setTimeout(() => document.getElementsByClassName("settings-loading")[0].setAttribute("style","display: none;"), 
           300);
           setTimeout(() => document.getElementsByClassName("settings-comp")[0].setAttribute("style","opacity: 1; transition: opacity 0.3s ease;"),
@@ -136,7 +137,8 @@ const slideEverything = (arg) => {
 
         });
       }
-    })
+    });
+  }, 300);
   }
 }
 

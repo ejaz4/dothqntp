@@ -101,3 +101,7 @@ flsestrings["fusion"] = {
 flsestrings["royalblue"] = {
     "default": "Royal Blue",
 }
+flsestrings["trycompasson"] = {
+    "default": `Try Compass on <a href="https://new.dothq.co/">Dot Browser</a>`,
+    "ja": `<a href="https://new.dothq.co/">Dot Browser</a>でコンパスを試してください`
+}
