@@ -74,7 +74,7 @@ const timetick = () => {
     if (settings["locale"].startsWith("en")){
       t2.innerText = `${days[d.getDay()]}, ${nth} ${months[d.getMonth()]}`;
     }
-    if (settings["locale"].startsWith("ja")){ t2.innerHTML = `${d.getFullYear()}年${d.getMonth()}月${d.getDate()}日 (${flsestrings[days[d.getDay()]].ja})`; }
+    if (settings["locale"].startsWith("ja")){ t2.innerHTML = `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日 (${flsestrings[days[d.getDay()]].ja})`; }
     if (settings["locale"].startsWith("sv")){ t2.innerHTML = `${flsestrings[days[d.getDay()]].sv}, ${d.getDate()} ${flsestrings[months[d.getMonth()]].sv}`;}
 }
 
