@@ -1,55 +1,49 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>New Tab</title>
+        <meta charset="utf-8">
+        <link
+            href="/css/index.css"
+            rel="stylesheet" 
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    </head>
 
-<head>
-    <title>New Tab</title>
-    <meta charset="utf-8" />
-    <script>
-        var flsestrings = {};
-    </script>
-    <link href="/css/index.css" rel="stylesheet" />
-</head>
-
-<body onload="loadcall()">
-    <div class="page" style="opacity: 0;">
-    </div>
-    <div class="widgets">
-        <!-- Time Widget -->
-        <div class="top-left widget" id="time-widget">
-            <time class="time--a1"></time>
-            <time class="time--a2"></time>
+    <body>
+        <div 
+            style="opacity: 0; transform: scale(1.1);"
+            class="resting-app"
+            id="resting-app"
+        >
+            <!-- Wallpaper element -->
         </div>
-        <div onclick="slideEverything('y')" style="padding: 20px;" class="top-right widget" id="time-widget">
-            <img style="display: block; width: 16px;" src="/images/settings.svg" />
-        </div>
-    </div>
 
-    <div class="settings-closed">
-        <div class="settings-right">
-            <div class="settings-pad">
-                <div style="padding: 20px 35px 0px 0px;" class="settings-loading">
-                    <settingskel />
-                </div>
-                <div style="opacity: 0; display: none;" class="settings-comp">
-                </div>
+        <div
+        class="widgets-container"
+        id="widgets-container">
+            
+        </div>
+
+        <div
+        class="settings-container settings-close"
+        id="settings-container">
+            <div class="settings-skel"></div>
+
+            <div
+            id="settings-loaded"
+            class="settings-loaded"
+            style="display: none;"
+            id="settings-loaded">
+
             </div>
         </div>
-    </div>
-    <style id="background-css">
-        .page {
-            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.5) 100%);
-        }
-    </style>
-    <style id="text-css">
-        :root {
-            --backg-text-color: white;
-            --backg-text-color-rgb: 255;
-        }
-    </style>
-    <flseimport src="/skels/settingsskel.html" name="settingskel" type="component" />
-    <script src="/js/index.js"></script>
-    <script src="/js/strings.js"></script>
-    <script src="/flse.js"></script>
-</body>
+    </body>
 
+    <script src="/js/errorhandler.js"></script>
+    <script src="/js/widgetloader.js"></script>
+    <script src="/js/settings.js"></script>
+    <script src="/js/wallpaper.js"></script>
+    <script src="/js/index.js"></script>
 </html>

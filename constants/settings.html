@@ -1,0 +1,121 @@
+<div 
+style="display: flex; justify-content: space-between;"
+>
+    <h1>Settings</h1>
+    <div 
+    onclick="settingsClose()"
+    class="close-button">
+        <img src='/images/icons/close.svg'/>
+    </div>
+</div>
+<div class="section">
+    <div class="title-bar">
+    <img src="/images/icons/moon.svg"/>
+    <p>Background</p>
+    </div>
+
+    <div class="background-carousel">
+        <div  onclick="window['checked'] = 0; refreshChecks()" class='item'>
+            <img src="/images/icons/unsplash.svg"/>
+            <p>Unsplash</p>
+            <img class="checkbox-big" src="/images/icons/selected.png" />
+        </div>
+        <div onclick="window['checked'] = 1; refreshChecks()" class='item'>
+            <img src="/images/icons/solidcolor.png" />
+            <p>Solid Colour</p>
+            <img class="checkbox-big" src="/images/icons/selected.png" />
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="title-bar">
+        <img src="/images/icons/clock.svg" />
+        <p>Time & Date</p>
+    </div>
+    <div class="black-box">
+        <h1>20:54</h1>
+    </div>
+</div>
+
+<style>
+    .black-box {
+        width: 100%;
+        background-color: black;
+        color: white;
+    }
+    /* .black-box > h1 {
+        color: white;
+    } */
+    .close-button {
+        vertical-align: middle;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .close-button:hover {
+        background-color: var(--backg-color-light);
+    }
+
+    .title-bar {
+        display: flex;
+        justify-content: start;
+        gap: 8px;
+    }
+
+    .title-bar > p {
+        font-weight: 600;
+    }
+
+    .section {
+        margin-top: 30px;
+    }
+
+    .background-carousel > .item {
+        text-align: center;
+        transform: scale(1.0);
+        scroll-snap-align: start;
+        transition: transform 0.2s ease;
+    }
+
+    .item {
+        margin-bottom: -20px;
+    }
+
+    .item > img {
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    .item > p {
+        margin-bottom: 10px;
+    }
+
+    .checkbox-big {
+        position: relative;
+        left: 85px;
+        top: -70px;
+        /* transform: translate(85px, -70px); */
+        margin-bottom: -30px !important;
+        transition: transform 0.1s ease;
+    }
+
+    .checkbox-inactive {
+        transform: scale(0);
+    }
+
+    .background-carousel {
+        margin-top: 20px;
+        display: flex;
+        gap: 20px;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        scroll-snap-type: x;
+        scrollbar-width: thin;
+    }
+
+    .item:hover > .checkbox-big {
+        transform: scale(1.0) !important;
+    }
+    .item:active > .checkbox-big {
+        transform: scale(0.9) !important;
+    }
+</style>
