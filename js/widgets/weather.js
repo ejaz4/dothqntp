@@ -62,7 +62,7 @@ class WeatherWidget {
                     })
                 }
             });
-        }, 1000);
+        }, 0);
         }
     }
 }

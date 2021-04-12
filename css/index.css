@@ -79,6 +79,9 @@ body {
 
 .settings-open {
     position: absolute;
+    scroll-snap-type: x;
+    scrollbar-width: none;
+    overflow-y: scroll;
     right: 0;
     top: 0;
 }
@@ -93,7 +96,11 @@ body {
     padding: 50px;
 }
 
-.settings-container {
+.settings-skel {
+    padding: 50px;
+}
+
+.settings-container {  
     width: 550px;
     max-width: 100%;
     height: 100vh;

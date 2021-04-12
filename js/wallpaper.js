@@ -3,35 +3,68 @@ const getRandomArbitrary = (min, max) => {
 }
 
 const selectAndLoadWallpaper = () => {
-    fetch('/constants/backgrounds.json')
-    .then((response) => {
-
-        if (response.status == 200){
-            response.json()
-            .then((backgrounds) => {
-                const backgroundNum = Math.floor(getRandomArbitrary(0, backgrounds.length));
-                downloadWallpaper(`/images/unsplash/${backgrounds[backgroundNum].id}.jpeg`);
-            });
-        } else{
-            netError(response.status);
+    var backgroundjson = new XMLHttpRequest();
+    backgroundjson.open('GET', '/constants/backgrounds.json');
+    backgroundjson.onreadystatechange = function (e) {
+        
+        if (this.readyState == 4) { 
+            if (this.status == 200) {
+                const b = JSON.parse(this.responseText);
+                const backgroundNum = Math.floor(getRandomArbitrary(0, b.length));
+                downloadWallpaper(`/images/unsplash/${b[backgroundNum].id}.jpeg`);
+            } else { 
+                netError(this.status);
+            }
         }
-    });
+    }
+
+    backgroundjson.send();
+
+
+    // fetch('/constants/backgrounds.json')
+    // .then((response) => {
+
+    //     if (response.status == 200){
+    //         response.json()
+    //         .then((backgrounds) => {
+    //             const backgroundNum = Math.floor(getRandomArbitrary(0, backgrounds.length));
+    //             downloadWallpaper(`/images/unsplash/${backgrounds[backgroundNum].id}.jpeg`);
+    //         });
+    //     } else{
+    //         netError(response.status);
+    //     }
+    // });
 };
 
 const downloadWallpaper = (uri) => {
-    fetch(uri)
-    .then((response) => {
+    var background = new XMLHttpRequest();
+    background.open('GET', uri);
+    background.responseType = "blob";
+    background.onreadystatechange = function (e) {
 
-        if (response.status == 200){
-            response.blob()
-            .then((image) => {
-                window["temp_wallpaperBlob"] = URL.createObjectURL(image);
+        if (this.readyState == 4) {
+
+            if (this.status == 200) {
+                window["temp_wallpaperBlob"] = URL.createObjectURL(this.response);
                 placeWallpaper(window["temp_wallpaperBlob"]);
-            });
-        } else{
-            netError(response.status);
+            }
         }
-    });
+    }
+    background.send();
+
+    // fetch(uri)
+    // .then((response) => {
+
+    //     if (response.status == 200){
+    //         response.blob()
+    //         .then((image) => {
+    //             window["temp_wallpaperBlob"] = URL.createObjectURL(image);
+    //             placeWallpaper(window["temp_wallpaperBlob"]);
+    //         });
+    //     } else{
+    //         netError(response.status);
+    //     }
+    // });
 };
 
 const placeWallpaper = (blob) => {

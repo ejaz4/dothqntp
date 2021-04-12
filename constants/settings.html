@@ -33,19 +33,27 @@ style="display: flex; justify-content: space-between;"
         <p>Time & Date</p>
     </div>
     <div class="black-box">
-        <h1>20:54</h1>
+        <div style="padding: 20px 38px 20px 38px;">
+        <time style="font-size: 5rem; font-weight: 600;" contenteditable>20:54</time>
+        </div>
     </div>
+    <p>Use 24-hour time</p>
+    <p>Show seconds</p>
+    <p>Date format</p>
 </div>
 
 <style>
     .black-box {
+        border-radius: 7px;
+        margin-top: 20px;
         width: 100%;
         background-color: black;
         color: white;
     }
-    /* .black-box > h1 {
-        color: white;
-    } */
+    .black-box > div > h1 {
+        font-size: 5rem;
+        font-weight: 600;
+    }
     .close-button {
         vertical-align: middle;
         padding: 10px;
@@ -115,7 +123,15 @@ style="display: flex; justify-content: space-between;"
     .item:hover > .checkbox-big {
         transform: scale(1.0) !important;
     }
-    .item:active > .checkbox-big {
+    /* .item:active > .checkbox-big {
         transform: scale(0.9) !important;
+    } */
+
+
+    /* .item:hover {
+        transform: scale(1.01) !important;
+    } */
+    .item:active {
+        transform: scale(0.97) !important;
     }
 </style>
